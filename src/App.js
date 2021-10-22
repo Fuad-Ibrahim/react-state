@@ -1,24 +1,18 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from "react";
+import SubscriberForm from "./SubscriberForm";
+import SubscriberList from "./SubscriberList";
 
 function App() {
+  const [name, setName] = useState("");
+  const toggleName = (event) => setName(event.target.value);
+
+  const [email, setEmail] = useState("");
+  const toggleEmail = (event) => setEmail(event.target.value);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <SubscriberForm name={name} handleName={toggleName} email={email} />
+    </>
   );
 }
 
